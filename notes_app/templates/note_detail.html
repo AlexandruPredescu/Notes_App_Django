@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="text-align: center; padding: 20px;">
+    <h1>{{ note.title }}</h1>
+    <p>{{ note.text }}</p>
+    <a href="{% url 'notes.list' %}" style="text-decoration: none; color: inherit;">
+        <button style="background-color: #007bff; color: #fff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; transition: background-color 0.3s;">Back</button>
+    </a>
+    <a href="{% url 'note.update' pk=note.pk %}" style="text-decoration: none; color: inherit;">
+        <button style="background-color: #28a745; color: #fff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; transition: background-color 0.3s;">Edit</button>
+    </a>
+    <a href="{% url 'note.delete' pk=note.pk %}" style="text-decoration: none; color: inherit;">
+        <button style="background-color: #dc3545; color: #fff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; transition: background-color 0.3s;">Delete</button>
+    </a>
+</div>
+{% endblock %}

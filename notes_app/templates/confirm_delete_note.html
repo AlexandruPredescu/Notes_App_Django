@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="max-width: 500px; margin: 0 auto; padding: 20px; background-color: #f9f9f9; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+  <h2 style="text-align: center; margin-bottom: 20px; color: #333; font-size: 24px;">Confirm Delete</h2>
+  <p style="font-size: 16px; margin-bottom: 20px;">Are you sure you want to delete "{{ note.title }}"?</p>
+  <form action="{% url 'note.delete' note.pk %}" method="post">
+    {% csrf_token %}
+    <div style="text-align: center;">
+      <input type="submit" value="Yes, delete note" style="background-color: #dc3545; color: #fff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin-right: 10px;">
+      <button style="background-color: #007bff; color: #fff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;"><a href="{% url 'detail' pk=note.pk %}" style="text-decoration: none; color: #fff;">Cancel</a></button>
+    </div>
+  </form>
+</div>
+{% endblock %}
